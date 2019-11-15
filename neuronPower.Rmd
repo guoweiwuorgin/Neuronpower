@@ -1,0 +1,74 @@
+---
+title: "fmri_power_calculate"
+output: html_document
+---
+本文档用于fmri power 分析
+本文使用的用于fmri power分析的工具是neuropower工具（http://www.neuropowertools.org/）和fmri power（http://www.fmripower.org/）这两个工具，前者是一个在线工具，后者是基于MATLAB的工具包，两者在分析能力上有所重合，在使用方法方面也有一定的重合，主要区别在与两者使用的是不同的方法（不同的过程可能更准确，其实方法是一样的）来估计pilot data （和你要进行的实验在设计上相同或者类似的以往实验设计，类似于gpower中的determinanation的过程）的power.
+
+1.两个工具的使用范围：
+首先是neuro power这个在线工具，该工具明确指出该工具目前所作的是task-fmri的power和simple size估计的工作，也就是说静息态、DTI以及其他的MRI方法及其延申指标的统计map是不能用这个网站来估计的。并且该网站提供的组水平统计检验的方法只有单样本T检验和双样本T检验（即独立T），目前还不支持其他的方法。但是该网站明确表示会后续跟进，补强该工具。
+
+其次是fmri power，这个工具包是MATLAB语言编写的，它是通过spm或者FSL的设计矩阵来评估你的实验设计的具体细节的，这个是和neuro power明显不一样的地方之一（neuro power是通过FSL和SPM中不同的阈值化方法来对这两个不同工具进行区分的）。这个工具在power估计的统计方法上也主要是单样本和两样本T检验，但是该工具指出如果是ANOVA的统计方法，你可以使用手动设置设计矩阵方法来求得power以及进行simple size的估计。但是该工具包的最新版本是2012年更新在NITRC上的，同时很久没有维护了，相比于一直有维护的neuro power，它的局限性可能是没有后续的跟进了。
+
+
+2.neuro power的使用
+2.1 pilot data 的数据获取
+   Pilot数据一般有三种来源，第一种是你自己做的试验性实验，可以理解为预实验；第二种是open data，即共享开源的数据；第三种是你自己以前做的实验。一般来说，做预实验是代价较大的，毕竟核磁机时昂贵，你希望自己的实验的每一个样本都是有效数据，同时，由于预实验的样本量本就很小，将其作为pilot data 可能效果并不好。
+所以可选择的一般是后两种，第一种是类似的实验设计的开源数据库的实验，假设你的实验是只有一个组间因素的设计，将使用两样本T检验来进行统计检验。那么你可以在开源数据库中寻找到一个类似的实验设计的数据来作为pilotdata。第二种是你自己以前所做的实验设计，你利用以往自己做的类似的研究数据作为pilotdata。其实这种思路和第二种一致，只是数据来源更便利。那么去哪里寻找pilot data呢？
+    neuro power 推荐的网址：（https://neurovault.org/），在这个网站里可以找到你需要的实验设计的数据。这里的数据基于多种来源，你可以看到来自于fMRI 1000数据库的数据等等，同时这里的数据都是发表文章的数据，你可以追溯到这些数据的来源。
+在这个网站下载需要的数据不需要注册，只需要点击左上角的collection，然后选择see all collection即可。
+
+2.2 neuro power的使用过程
+
+
+
+
+
+
+
+
+
+
+
+2.3 neuro power的计算细节及简单实现原理
+
+
+
+
+
+
+3.fmri power的使用
+3.1 pilot data 的数据获取
+3.2 fmri power的使用过程
+3.3 fmri power的计算细节及简单实现原理
+
+
+
+
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
