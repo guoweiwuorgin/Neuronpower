@@ -3,7 +3,7 @@ title: "fmri_power_calculate"
 output: html_document
 ---
 本文档用于fmri power 分析
-本文使用的用于fmri power分析的工具是neuropower工具（http://www.neuropowertools.org/）和fmri power（http://www.fmripower.org/）这两个工具，前者是一个在线工具，后者是基于MATLAB的工具包，两者在分析能力上有所重合，在使用方法方面也有一定的重合，主要区别在与两者使用的是不同的方法（不同的过程可能更准确，其实方法是一样的）来估计pilot data （和你要进行的实验在设计上相同或者类似的以往实验设计，类似于gpower中的determinanation的过程）的power.
+本文使用的用于fmri power分析的工具是neuropower工具（http://www.neuropowertools.org/）和fmri power（http://www.fmripower.org/）这两个工具，前者是一个在线工具，后者是基于MATLAB的工具包，两者在分析能力上有所重合，在使用方法方面也有一定的重合，主要区别在与两者使用的是不同的方法（不同的过程可能更准确，其实方法是一样的）来估计pilot data （和你要进行的实验在设计上相同或者类似的以往实验设计，类似于gpower中的determination的过程）的power.
 
 1.两个工具的使用范围：
 首先是neuro power这个在线工具，该工具明确指出该工具目前所作的是task-fmri的power和simple size估计的工作，也就是说静息态、DTI以及其他的MRI方法及其延申指标的统计map是不能用这个网站来估计的。并且该网站提供的组水平统计检验的方法只有单样本T检验和双样本T检验（即独立T），目前还不支持其他的方法。但是该网站明确表示会后续跟进，补强该工具。
